@@ -1,0 +1,2 @@
+# Solo dependencias basicas para slayer.py
+requests>=2.31.0

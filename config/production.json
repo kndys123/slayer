@@ -1,0 +1,67 @@
+{
+  "app_name": "SLAYER Enterprise",
+  "version": "3.0.0",
+  "environment": "production",
+  "debug": false,
+  
+  "security": {
+    "enable_ssrf_protection": true,
+    "allowed_schemes": ["http", "https"],
+    "blocked_ips": [],
+    "max_redirects": 5,
+    "verify_ssl": true,
+    "enable_rate_limiting": true,
+    "rate_limit_requests": 1000,
+    "rate_limit_period": 60,
+    "enable_authentication": false
+  },
+  
+  "performance": {
+    "enable_caching": true,
+    "cache_backend": "memory",
+    "cache_ttl": 300,
+    "redis_url": null,
+    "redis_db": 0,
+    "enable_connection_pooling": true,
+    "pool_connections": 100,
+    "pool_maxsize": 100,
+    "max_concurrent_requests": 100,
+    "request_timeout": 30,
+    "connect_timeout": 10,
+    "read_timeout": 30,
+    "enable_compression": true,
+    "enable_http2": true,
+    "enable_retry": true,
+    "max_retries": 3,
+    "retry_backoff_factor": 0.5,
+    "retry_statuses": [429, 500, 502, 503, 504]
+  },
+  
+  "resilience": {
+    "enable_circuit_breaker": true,
+    "circuit_breaker_threshold": 5,
+    "circuit_breaker_timeout": 60,
+    "circuit_breaker_half_open_max_calls": 3,
+    "enable_bulkhead": true,
+    "bulkhead_max_concurrent": 50
+  },
+  
+  "monitoring": {
+    "enable_metrics": true,
+    "metrics_port": 9090,
+    "enable_prometheus": true,
+    "enable_audit_logging": true,
+    "audit_log_path": "/var/log/slayer/audit.log",
+    "enable_performance_logging": true,
+    "log_level": "INFO",
+    "log_format": "json",
+    "enable_distributed_tracing": false
+  },
+  
+  "plugins": {
+    "enable_plugins": true,
+    "plugin_dir": "./plugins",
+    "auto_load_plugins": true,
+    "allowed_plugins": []
+  }
+}
